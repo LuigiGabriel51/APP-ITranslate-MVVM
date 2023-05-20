@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:appMVVM.ViewModel" x:Class="appMVVM.View.Page1">
+
+    <ContentPage.BindingContext>
+        <local:VMtraducao/>
+        <!-- Defina o ViewModel correto como contexto de binding -->
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <AbsoluteLayout>
+
+            <Label Text="iTranslate" HorizontalOptions="Center" AbsoluteLayout.LayoutBounds="50,20,300,50"
+                   FontSize="20" BackgroundColor="Transparent" FontAttributes="Bold" FontFamily="Roboto"/>
+
+            <Frame WidthRequest="350" AbsoluteLayout.LayoutBounds="50,100,300,300" Padding="0">
+                <Editor HorizontalOptions="Center" Text="{Binding Traduzir}" WidthRequest="350" VerticalTextAlignment="Start"
+                   x:Name="city"   BackgroundColor="#CFCFCF" HorizontalTextAlignment="Start"
+                   Placeholder="Digite o texto" FontSize="24" PlaceholderColor="Black" MaxLength="250" />
+            </Frame>
+            <Label Text="Tradução" AbsoluteLayout.LayoutBounds="50,410,300,150" HorizontalOptions="Center" FontSize="22"/>
+            <Frame AbsoluteLayout.LayoutBounds="50,445,300,130" WidthRequest="350" BackgroundColor="#CFCFCF">
+                <Label BackgroundColor="Transparent" Text="{Binding TRADUCAO.traducao}" FontSize="20" WidthRequest="330"/>
+            </Frame>
+
+
+            <Frame AbsoluteLayout.LayoutBounds="30,590,150,50" Padding="0">
+            <Picker Title="Traduzir de:" TitleColor="Black" TextColor="Black" 
+                    BackgroundColor="#CFCFCF" FontSize="20" SelectedItem="{x:Binding IdiomaO}">
+                <Picker.Items>
+                    <x:String>PORTUGUES</x:String>
+                    <x:String>INGLES</x:String>
+                    <x:String>ESPANHOL</x:String>
+                    <x:String>FRANCES</x:String>
+                    <x:String>ALEMAO</x:String>
+                    <x:String>ITALIANO</x:String>
+                </Picker.Items>
+            </Picker>
+            </Frame>
+
+            <Frame  AbsoluteLayout.LayoutBounds="220,590,150,50" Padding="0">
+                <Picker Title="Tradução para:" TitleColor="Black" TextColor="Black"
+                    BackgroundColor="#CFCFCF" FontSize="20" SelectedItem="{x:Binding IdiomaT}">
+                    <Picker.Items>
+                        <x:String>PORTUGUES</x:String>
+                        <x:String>INGLES</x:String>
+                        <x:String>ESPANHOL</x:String>
+                        <x:String>FRANCES</x:String>
+                        <x:String>ALEMAO</x:String>
+                        <x:String>ITALIANO</x:String>
+                    </Picker.Items>
+
+                </Picker>
+            </Frame>
+            
+            <Button Text="Traduzir" FontAttributes="Bold" WidthRequest="150" Command="{x:Binding gettraducao}"
+                    AbsoluteLayout.LayoutBounds="50,650,300,50"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
