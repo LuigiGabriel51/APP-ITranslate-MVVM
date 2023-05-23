@@ -13,7 +13,7 @@ public partial class PageFavoritos : ContentPage
     public void PegaJson()
     {
         BD bd = new BD();
-        var data = bd.List();
+        List<Traducao> data = bd.List();
         listaFav.ItemsSource = data;
     }
 
@@ -26,8 +26,10 @@ public partial class PageFavoritos : ContentPage
         {
             string traz = item.traduzir;
             string trac = item.traducao;
+            int id = item.Id;
             Traducao tr = new Traducao
             {
+                Id = id,
                 traduzir = traz,
                 traducao = trac
             };
