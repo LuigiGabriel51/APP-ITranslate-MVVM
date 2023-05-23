@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appMVVM.View.PageFavoritos"
+             Shell.FlyoutBehavior="Flyout" BackgroundColor="{ AppThemeBinding Dark=#4A148C,Light=#E6FFE6}"
+             >
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Label Text="Salvar expressões importantes" HorizontalOptions="Center" FontSize="20"  TextColor="{AppThemeBinding Light=Black, Dark=White}"
+               FontAttributes="Bold" Margin="50" HorizontalTextAlignment="Center" WidthRequest="200"/>
+
+        <Label Text="Salvas" FontSize="35" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+        <ScrollView BackgroundColor="Transparent" Margin="0,0,0,0"  HeightRequest="300" HorizontalOptions="Start"
+                  WidthRequest="320">
+            <ListView x:Name="listaFav" SeparatorVisibility="Default" SeparatorColor="{AppThemeBinding Dark=white, Light=black}" SelectionMode="None" HasUnevenRows="True" HorizontalOptions="Start">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ScrollView Orientation="Vertical" HorizontalOptions="Start" BackgroundColor="Transparent">
+                                <HorizontalStackLayout  Spacing="0" BackgroundColor="Transparent">
+                                    <VerticalStackLayout BackgroundColor="Transparent" WidthRequest="280" HorizontalOptions="Start"> 
+                                        
+                                        <Label Text="{Binding traduzir}" TextColor="{AppThemeBinding Light=Black, Dark=White}" FontSize="18" WidthRequest="250" 
+                                               BackgroundColor="Transparent" HorizontalOptions="Start"/>
+
+                                        <Label Text="{Binding traducao}" TextColor="{AppThemeBinding Light=#8B8386, Dark=White}" FontSize="18"
+                                               WidthRequest="250" BackgroundColor="Transparent" HorizontalOptions="Start"
+                                               />
+                                    </VerticalStackLayout>
+                                    <Button WidthRequest="40" HeightRequest="40" FontSize="30" Text="★" Padding="0" HorizontalOptions="Start"
+                                            BackgroundColor="Transparent" TextColor="DodgerBlue" Clicked="RemoveFavorite" Margin="0,0,0,0"/>
+                                </HorizontalStackLayout>
+                            </ScrollView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

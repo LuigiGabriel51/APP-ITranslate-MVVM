@@ -35,12 +35,13 @@ namespace appMVVM.ViewModel
             get { return _idiomaT; }
             set { SetProperty(ref _idiomaT, value); }
         }
-
+        public IAsyncRelayCommand favoritar { get; }
         public IAsyncRelayCommand gettraducao { get; }
 
         public VMtraducao()
         {
             gettraducao = new AsyncRelayCommand(getTraducao);
+            favoritar = new AsyncRelayCommand(Favoritar);
         }
         private async Task getTraducao()
         {
@@ -77,6 +78,20 @@ namespace appMVVM.ViewModel
             };
             
 
+        }
+
+        private async Task Favoritar()
+        {
+            if(Traduzir != null && TRADUCAO.traducao != null)
+            {
+                Traducao tr = new Traducao
+                {
+                    traduzir = Traduzir,
+                    traducao = TRADUCAO.traducao
+                };
+                BD bd = new BD();
+                bd.Create(tr);
+            }
         }
 
         public class WeatherApiClient

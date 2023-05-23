@@ -8,6 +8,7 @@ namespace appMVVM.Models
 {
     public class Traducao
     {
+        public string traduzir { get; set; }
         public string traducao { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace appMVVM;
+﻿using Microsoft.Maui.ApplicationModel;
+
+namespace appMVVM;
 
 public partial class App : Application
 {
@@ -9,3 +11,5 @@ public partial class App : Application
 		MainPage = new AppShell();
 	}
 }
+    
+
