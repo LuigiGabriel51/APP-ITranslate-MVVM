@@ -3,9 +3,48 @@
     x:Class="appMVVM.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:appMVVM.Models"
     xmlns:local="clr-namespace:appMVVM.View" FlyoutBehavior="Flyout" 
     >
-    
+
+    <Shell.FlyoutFooter>
+        <StackLayout>
+            <!-- Conteúdo do rodapé -->
+            <StackLayout Orientation="Vertical" Spacing="15">
+
+
+                <Label Text="© 2023 Nome da Empresa. Todos os direitos reservados." LineHeight="2"
+                   FontSize="12" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                   HorizontalOptions="Center" VerticalOptions="Center"  HorizontalTextAlignment="Center"/>
+                <Label Text="|"
+                   FontSize="12" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Termos de Uso"
+                   FontSize="12" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="|"
+                   FontSize="12" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Text="Política de Privacidade"
+                   FontSize="12" TextColor="{AppThemeBinding Dark=White, Light=Black}" 
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+
+                    <Label Text="{x:Static models:IconFont.Instagram}" FontFamily="FaBrands" HorizontalOptions="Center"
+                       FontSize="20" TextColor="{AppThemeBinding Dark=white, Light=black}"/>
+                    <Label Text="@luigigome.z" FontSize="10"/>
+                    <Label Text="{x:Static models:IconFont.Twitter}" FontFamily="FaBrands" HorizontalOptions="Center"
+                       FontSize="20" TextColor="{AppThemeBinding Dark=white, Light=black}"/>
+                    <Label Text="@bagriel.luigi" FontSize="10"/>
+                    <Label Text="{x:Static models:IconFont.Github}" FontFamily="FaBrands" HorizontalOptions="Center"
+                       FontSize="20" TextColor="{AppThemeBinding Dark=white, Light=black}"/>
+                    <Label Text="LuigiGabriel51" FontSize="10"/>
+                </HorizontalStackLayout>
+                
+            </StackLayout>
+        </StackLayout>
+    </Shell.FlyoutFooter>
 
     <ShellContent Title="iTranslate" ContentTemplate="{DataTemplate local:Page1}" 
                   Route="MainPage" Shell.FlyoutBehavior="Flyout" Shell.FlyoutItemIsVisible="True"

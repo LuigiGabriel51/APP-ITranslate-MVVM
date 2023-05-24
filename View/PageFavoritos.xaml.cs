@@ -43,7 +43,7 @@ public partial class PageFavoritos : ContentPage
     {
         base.OnAppearing();
 
-        // Atualizar a fonte de dados do ListView sempre que a página for exibida
         PegaJson();
+
     }
 }

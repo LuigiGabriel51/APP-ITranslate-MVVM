@@ -2,6 +2,7 @@
 using appMVVM.Models;
 using CommunityToolkit.Mvvm.Input;
 using Newtonsoft.Json;
+using Microsoft.Maui.Controls.PlatformConfiguration;
 
 namespace appMVVM.ViewModel
 {
@@ -93,7 +94,6 @@ namespace appMVVM.ViewModel
                 bd.Create(tr);
             }
         }
-
         public class WeatherApiClient
         {
             private readonly HttpClient _httpClient;
